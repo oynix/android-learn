@@ -98,12 +98,6 @@ TabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
   @Override
   public void onTabReselected(TabLayout.Tab tab) {}
 });
-
-
-
-
-
-
 ```
 
 ### 5. 完整代码
