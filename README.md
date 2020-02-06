@@ -8,8 +8,9 @@
    - 语法
    - 版本
 4. MVP
-5. 自定义View
+5. Widget
    - xRecyclerView
+   - [TabLayout按需分配自身的宽度](widget/TabLayout按需分配自身的宽度/TabLayout按需分配自身的宽度.md)
 6. 网络请求
    - 大多数APP框架
 7. Socket 连接
@@ -21,6 +22,6 @@
    - 扩展
 10. 数据存储
 11. 反编译
-    * [apk反编译--jadx](反编译/apk反编译--jadx.md)
+    * [apk反编译--jadx](decompilation/apk反编译--jadx.md)
 12. 热门APP模仿
 13. 面试题集锦
