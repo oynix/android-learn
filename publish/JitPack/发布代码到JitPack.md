@@ -22,20 +22,20 @@ implementation 'groupId:artificialId:version'
 ### 2/3 在Github上打release包
 
 - 按图顺序点击
-<img src="/Users/xiaoyu/learn/android-learn/publish/JitPack/images/jitpack_1.png" style="zoom:50%;" />
+<img src="images/jitpack_1.png" style="zoom:50%;" />
 <img src="/Users/xiaoyu/learn/android-learn/publish/JitPack/images/jitpack_2.png" style="zoom:50%;" />
 
 
 - 输入相关字段。版本号不能重复，一般从1.0.0开始，我这里发布过1.0.0，所以写了3.0.0。最后点击Publish release
-<img src="/Users/xiaoyu/learn/android-learn/publish/JitPack/images/jitpack_3.png" style="zoom:50%;" />
+<img src="images/jitpack_3.png" style="zoom:50%;" />
 
 ### 3/3 在JitPack上build代码
 
 - 地址：https://jitpack.io/，在搜索栏输入用户名和仓库名，点搜索便能显示打过的release版本，如果没打过会显示最近的提交。如果登陆Github账号，会在左边展示所有仓库，点击刚刚的仓库亦可。然后点击对应版本后面的Get it按钮，等待build完成即可
-<img src="/Users/xiaoyu/learn/android-learn/publish/JitPack/images/jitpack_4.png" style="zoom:50%;" />
+<img src="images/jitpack_4.png" style="zoom:50%;" />
 
 - 编译完整后，按照下面的说明，便可以在项目中导入自己刚刚发布的代码了
-<img src="/Users/xiaoyu/learn/android-learn/publish/JitPack/images/jitpack_5.png" style="zoom:50%;" />
+<img src="images/jitpack_5.png" style="zoom:50%;" />
 
 
 

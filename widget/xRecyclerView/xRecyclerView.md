@@ -9,7 +9,7 @@
 - 列表处于顶端时，向下滑动触发下拉刷新
 - 向上滑动列表，至 LoadMoreItem 完整展示后松手，触发加载更多操作；LoadMoreItem 部分展示时松手，LoadMoreItem 自动滑动至隐藏
 
-<img src="/Users/xiaoyu/learn/android-learn/widget/xRecyclerView/images/sample.gif" style="zoom:50%;" />
+<img src="images/sample.gif" style="zoom:50%;" />
 
 ### 3. 使用方式一
 
