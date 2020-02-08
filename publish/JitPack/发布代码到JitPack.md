@@ -23,7 +23,7 @@ implementation 'groupId:artificialId:version'
 
 - 按图顺序点击
 <img src="images/jitpack_1.png" style="zoom:50%;" />
-<img src="/Users/xiaoyu/learn/android-learn/publish/JitPack/images/jitpack_2.png" style="zoom:50%;" />
+<img src="images/jitpack_2.png" style="zoom:50%;" />
 
 
 - 输入相关字段。版本号不能重复，一般从1.0.0开始，我这里发布过1.0.0，所以写了3.0.0。最后点击Publish release
