@@ -52,23 +52,23 @@ Android Studio 中新建一个项目，创建完成后，此时项目中有一�
 
    - 第二行是 [gradle github](https://github.com/bintray/gradle-bintray-plugin) 地址，添加时可查看最新版本
 
-   ```groovy
+```groovy
 buildscript {
-    repositories {
-        google()
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
-   
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+'
-    }
-   }
-   ```
+       repositories {
+           google()
+           jcenter()
+           mavenCentral()
+       }
+       dependencies {
+           classpath 'com.android.tools.build:gradle:3.2.1'
+      
+           // NOTE: Do not place your application dependencies here; they belong
+           // in the individual module build.gradle files
+           classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+           classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+'
+       }
+      }
+```
    
 2. 配置 Bintray 账号信息，即开源库即将上传到哪，以及开发者信息。配置信息写到项目根目录下的 `local.properties` 文件中，这个文件默认添加到了 `.gitignore` 中，如果没有请自行创建并添加到 `.gitignore` 中，因为其中包含个人账号信息：
 
