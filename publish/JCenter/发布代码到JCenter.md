@@ -69,7 +69,7 @@ buildscript {
        }
       }
 ```
-   
+
 2. 配置 Bintray 账号信息，即开源库即将上传到哪，以及开发者信息。配置信息写到项目根目录下的 `local.properties` 文件中，这个文件默认添加到了 `.gitignore` 中，如果没有请自行创建并添加到 `.gitignore` 中，因为其中包含个人账号信息：
 
    ```properties
@@ -114,7 +114,7 @@ buildscript {
 
 4. 上传操作的配置信息，即，上面的所有配置信息和上传操作这二者间的桥梁。在开源库 moudle 目录下新建 `bintrayUpload.gradle` 文件，添加以下内容：
 
-   ```groovy
+```groovy
    apply plugin: 'com.github.dcendents.android-maven'
    apply plugin: 'com.jfrog.bintray'
    
@@ -232,7 +232,7 @@ def projectVersionName = android.defaultConfig.versionName
        }
    }
    
-   ```
+```
    
    以上内容基本不用改变什么，除了 bintray 节点的 repo 的值，要与第一步在 Bintray 上创建的仓库名称保持一致
    
