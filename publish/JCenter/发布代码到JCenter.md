@@ -128,7 +128,7 @@ buildscript {
    def projectName = properties.getProperty("project.name")
    def projectGroupId = properties.getProperty("project.groupId")
    def projectArtifactId = properties.getProperty("project.artifactId")
-def projectVersionName = android.defaultConfig.versionName
+   def projectVersionName = android.defaultConfig.versionName
    def projectPackaging = properties.getProperty("project.packaging")
    def projectSiteUrl = properties.getProperty("project.siteUrl")
    def projectGitUrl = properties.getProperty("project.gitUrl")
