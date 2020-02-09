@@ -103,10 +103,10 @@ buildscript {
    # javadoc
    javadoc.name=xrecyclerview
    ```
-
+   `implementation` 语法为: `implementation 'groupId:artifactId:version'`
    - `project.name`：开源库名称
-   - `project.groupId`：项目组ID，写包名
-   - `project.artifactId`：项目ID，写 moudle 名
+   - `project.groupId`：项目组ID，语法中的 groupId，可以写包名
+   - `project.artifactId`：项目ID，语法中的 artifactId，可以写 moudle 名
    - `project.packaging`：打包方式，写 arr
    - `project.siteUrl`：项目主页，没有就写 Github 地址
    - `project.gitUrl`：项目仓库地址
@@ -233,9 +233,9 @@ buildscript {
    }
    
 ```
-   
+
    以上内容基本不用改变什么，除了 bintray 节点的 repo 的值，要与第一步在 Bintray 上创建的仓库名称保持一致
-   
+
 5. 在开源库 moudle 下的 `build.gradle` 文件末尾添加一行，然后 `Sync` 一下
 
    ```groovy
