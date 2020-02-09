@@ -25,6 +25,6 @@
     * [apk反编译--jadx](decompilation/apk反编译--jadx.md)
 12. 发布代码
     - [发布代码到JitPack](publish/JitPack/发布代码到JitPack.md)
-    - [发布代码到JCenter](publish/JCenter/发布代码到JCenter)
+    - [发布代码到JCenter](publish/JCenter/发布代码到JCenter.md)
 13. 热门APP模仿
 14. 面试题集锦
