@@ -290,6 +290,18 @@ buildscript {
   implementation 'com.oynix.xrecyclerview:xrecyclerview:1.0'
   ```
 
+- 如果不想 Linked 到 JCenter 也想通过 `implementataion` 的方式导入，也可以实现。注意看上张图片，右上角有个链接地址 : https://dl.bintray.com/oynix/xrecyclerview，所有传上去的开源库都有个对应的链接，将这个链接添加到项目根目录下的 `build.gradle` 中，如下，Sync 一下，就可以了：
+
+  ```groovy
+  allprojects {
+      repositories {
+          google()
+          jcenter()
+          maven { url 'https://dl.bintray.com/oynix/xrecyclerview' }
+      }
+  }
+  ```
+
   
 
 
