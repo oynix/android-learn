@@ -307,3 +307,81 @@ PathEffect 很明显就是路径效果的意思，其一共有六个子类，效
 
 为绘制的图形添加一个阴影层效果，不支持硬件加速
 
+## setShader(Shader shader)
+
+着色器，有五个子类
+
+### BitmapShader
+
+只有一个含参的构造方法，其他 4 个子类都有两个
+
+```java
+BitmapShader(Bitmap bitmap, Shader.TileMode tileX, Shader.TileMode tileY)
+```
+
+Shader.TileMode 有三种：CLAMP 拉伸，MIRROR 镜像和 REPEAT 重复
+
+### LinearGradient
+
+线性渐变
+
+```java
+LinearGradient(float x0, float y0, float x1, float y1, int color0, int color1, Shader.TileMode tile)
+```
+
+(x0, y0) 渐变的起点，(x1, y1) 渐变的终点，color0 起点颜色，color1 终点颜色
+
+```java
+LinearGradient(float x0, float y0, float x1, float y1, int[] colors, float[] positions, Shader.TileMode tile)
+```
+
+colors 表示支持多个颜色，positons 表示各个颜色的分界位置，如 {Color.RED, Color.GREEN, Color.BLUE}，{0, 0.3F, 0.8F}，positions 为null 时均分渐变区域
+
+### SweepGradient
+
+梯度渐变，也称扫描式渐变，累死雷达扫描效果
+
+```java
+SweepGradient(float cx, float cy, int color0, int color1)
+
+SweepGradient(float cx, float cy, int[] colors, float[] positons)
+```
+
+同 LinearGradient
+
+### RadialGradient
+
+径向渐变，从圆心中心向四周渐变的效果，构造方法就先写一个，同上
+
+```java
+RadialGradient(float cx, float cy, float radius, int centerColor, int edgeColor, Shader.TileMode tile);
+```
+
+### ComposeShader
+
+组合 Shader
+
+```java
+ComposeShasdr(Shader s0, Shader s1, Xfermode mode);
+ComposeShader(Shader s0, Shader s1, PorterDuff.Mode mode)
+```
+
+## Metrix
+
+3 x 3 坐标矩阵，初始值:
+
+```java
+new float[]{
+  1, 0, 0, // x
+  0, 1, 0, // y
+  0, 0, 1, // 1
+}
+```
+
+第一列表示 x 轴方向缩放，第二列表示 y 轴方向缩放，第三列表示偏移
+
+### setTranslate scale
+
+### preTranslate scale
+
+### postTranslate scale
