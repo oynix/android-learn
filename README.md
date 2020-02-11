@@ -9,6 +9,8 @@
    - 版本
 4. MVP
 5. Widget
+   - [FontMetrix说明](widget/fontmetrix/FontMetrix说明.md)
+   - [Paint常用方法说明](widget/Paint/Paint常用方法说明.md)
    - [xRecyclerView](widget/xRecyclerView/xRecyclerView.md)
    - [TabLayout按需分配自身的宽度](widget/TabLayout按需分配自身的宽度/TabLayout按需分配自身的宽度.md)
 6. 网络请求
