@@ -1,6 +1,6 @@
 # Paint常用方法说明
 
-原文地址：[https://blog.csdn.net/aigestudio/article/details/41316141](https://blog.csdn.net/aigestudio/article/details/41316141)，写的很详细。这里只挑出一些常用的，或者难于理解的，单独拿出来做个笔记。
+原文地址：[https://blog.csdn.net/aigestudio/article/details/41316141](https://blog.csdn.net/aigestudio/article/details/41316141)，写的很详细。这里只挑出一些常用的，难于理解的，单独拿出来做个笔记。
 
 [TOC]
 
@@ -190,3 +190,120 @@ IN：绘制相交部分，SRC_IN绘制SRC，DST_IN绘制DST
 OUT：绘制不相交部分，SRC_OUT绘制SRC，DST_OUT绘制DST
 
 ATOP：SRC_ATOP只绘制SRC中相交部分，DST_ATOP只绘制DST中相交部分
+
+## setDither(boolean dither)
+
+设置绘制图像时的抗抖动，也称为递色
+
+设置前
+
+![](images/dither_1.jpeg)
+
+设置后
+
+![](images/dither_2.jpeg)
+
+放大来看，其在很多相邻像素之间插入了一个中间值，使颜色过渡变得些许柔和
+
+![](images/dither_3.jpeg)
+
+## setMaskFilter(MaskFilter maskFilter)
+
+MaskFilter 类中没有任何实现方法，它有两个子类 BlurMaskFilter 和 EmbossMaskFilter，前者为模糊遮罩滤镜，而后者为浮雕遮罩滤镜，不支持硬件加速
+
+### BlurMaskFilter
+
+只有一个含参的都早方法
+
+```java
+BlurMaskFilter(float radisu, BlurMaskFilter.Blur style)
+```
+
+其中 radius 表示阴影半径，值越大越扩散。第二个参数 style 表示模糊类型，有四种选择：SOLD 效果是在图像的 Alpha 边界产生一层与 Paint 颜色一致的阴影效果而不影响图像本身；NORMAL 会将整个图像模糊掉；OUTER 会在 Alpha 边界外产生一层阴影且会将原本的图像变得透明；INNER 则会在图像内部产生模糊，很少用
+
+如上所说 BlurMaskFilter 是根据 Alpha 通道的边界来计算模糊的，如果是一张图片（注：Android 会把复制到资源目录的图片转为 RGB565）你会发现没有任何效果，那么如何给图片加一个类似阴影的效果呢？其实很简单，可以尝试从 Bitmap 中获取其 Alpha 通道，并在绘制 Bitmap 前先以该 Alpha 通道绘制一个模糊就可以了
+
+```java
+public class BlurMaskFilterView extends View {
+	private Paint shadowPaint;// 画笔
+	private Context mContext;// 上下文环境引用
+	private Bitmap srcBitmap, shadowBitmap;// 位图和阴影位图
+ 
+	private int x, y;// 位图绘制时左上角的起点坐标
+ 
+	public BlurMaskFilterView(Context context) {
+		this(context, null);
+	}
+ 
+	public BlurMaskFilterView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		mContext = context;
+		// 记得设置模式为SOFTWARE
+		setLayerType(LAYER_TYPE_SOFTWARE, null);
+ 
+		// 初始化画笔
+		initPaint();
+ 
+		// 初始化资源
+		initRes(context);
+	}
+ 
+	/**
+	 * 初始化画笔
+	 */
+	private void initPaint() {
+		// 实例化画笔
+		shadowPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
+		shadowPaint.setColor(Color.DKGRAY);
+		shadowPaint.setMaskFilter(new BlurMaskFilter(10, BlurMaskFilter.Blur.NORMAL));
+	}
+ 
+	/**
+	 * 初始化资源
+	 */
+	private void initRes(Context context) {
+		// 获取位图
+		srcBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.a);
+ 
+		// 获取位图的Alpha通道图
+		shadowBitmap = srcBitmap.extractAlpha();
+ 
+		/*
+		 * 计算位图绘制时左上角的坐标使其位于屏幕中心
+		 */
+		x = MeasureUtil.getScreenSize((Activity) mContext)[0] / 2 - srcBitmap.getWidth() / 2;
+		y = MeasureUtil.getScreenSize((Activity) mContext)[1] / 2 - srcBitmap.getHeight() / 2;
+	}
+ 
+	@Override
+	protected void onDraw(Canvas canvas) {
+		super.onDraw(canvas);
+		// 先绘制阴影
+		canvas.drawBitmap(shadowBitmap, x, y, shadowPaint);
+ 
+		// 再绘制位图
+		canvas.drawBitmap(srcBitmap, x, y, null);
+	}
+}
+```
+
+## setPathEffect(PathEffect effect)
+
+PathEffect 很明显就是路径效果的意思，其一共有六个子类，效果如下
+
+![](images/patheffect_1.jpeg)
+
+从上到下：未设置PathEffect，CornerPathEffect，DiscretePathEffect，DashPathEffect，PathDashPathEffect，ComposePathEffect，SumPathEffect
+
+## setStrokeCap(Paint.Cap cap)
+
+设置画笔笔触风格，ROUND，SQUARE 和 BUTT
+
+##setStrokeJoin(Paint.Join join)
+
+设置结合处的形态
+
+## setShadowLayer(float radius, float dx, float dy, int shadowColor)
+
+为绘制的图形添加一个阴影层效果，不支持硬件加速
+
