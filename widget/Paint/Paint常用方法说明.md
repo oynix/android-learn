@@ -2,53 +2,99 @@
 
 原文地址：[https://blog.csdn.net/aigestudio/article/details/41316141](https://blog.csdn.net/aigestudio/article/details/41316141)，写的很详细。这里只挑出一些常用的，难于理解的，单独拿出来做个笔记。
 
-* [Paint常用方法说明](#paint常用方法说明)
-      * [setAntiAlias(boolean aa)](#setantialiasboolean-aa)
-      * [setColorFilter(ColorFilter filter)](#setcolorfiltercolorfilter-filter)
-         * [ColorMatricColorFilter](#colormatriccolorfilter)
-         * [LighingColorFilter](#lighingcolorfilter)
-         * [PorterDuffColorFilter](#porterduffcolorfilter)
-      * [setXfermode(Xfermode xfermode)](#setxfermodexfermode-xfermode)
-         * [AvoidXfermode](#avoidxfermode)
-            * [AvoidXfermode.Mode.TARGET](#avoidxfermodemodetarget)
-            * [AvoidXfermode.Mode.AVOID](#avoidxfermodemodeavoid)
-         * [PixelXorXfermode](#pixelxorxfermode)
-         * [PorterDuffXfermode](#porterduffxfermode)
-            * [PorterDuff.Mode.ADD](#porterduffmodeadd)
-            * [PorterDuff.Mode.CLEAR](#porterduffmodeclear)
-            * [PorterDuff.Mode.DARKEN](#porterduffmodedarken)
-            * [PorterDuff.Mode.DST](#porterduffmodedst)
-            * [PorterDuff.Mode.DST_ATOP](#porterduffmodedst_atop)
-            * [PorterDuff.Mode.DST_IN](#porterduffmodedst_in)
-            * [PorterDuff.Mode.DST_OUT](#porterduffmodedst_out)
-            * [PorterDuff.Mode.DST_OVER](#porterduffmodedst_over)
-            * [PorterDuff.Mode.LIGHTEN](#porterduffmodelighten)
-            * [PorterDuff.Mode.MULTIPLY](#porterduffmodemultiply)
-            * [PorterDuff.Mode.OVERLAY](#porterduffmodeoverlay)
-            * [PorterDuff.Mode.SCREEN](#porterduffmodescreen)
-            * [PorterDuff.Mode.SRC](#porterduffmodesrc)
-            * [PorterDuff.Mode.SRC_ATOP](#porterduffmodesrc_atop)
-            * [PorterDuff.Mode.SRC_IN](#porterduffmodesrc_in)
-            * [PorterDuff.Mode.SRC_OUT](#porterduffmodesrc_out)
-            * [PorterDuff.Mode.SRC_OVER](#porterduffmodesrc_over)
-            * [PorterDuff.Mode.XOR](#porterduffmodexor)
-            * [总结](#总结)
-      * [setDither(boolean dither)](#setditherboolean-dither)
-      * [setMaskFilter(MaskFilter maskFilter)](#setmaskfiltermaskfilter-maskfilter)
-         * [BlurMaskFilter](#blurmaskfilter)
-      * [setPathEffect(PathEffect effect)](#setpatheffectpatheffect-effect)
-      * [setStrokeCap(Paint.Cap cap)](#setstrokecappaintcap-cap)
-      * [setShadowLayer(float radius, float dx, float dy, int shadowColor)](#setshadowlayerfloat-radius-float-dx-float-dy-int-shadowcolor)
-      * [setShader(Shader shader)](#setshadershader-shader)
-         * [BitmapShader](#bitmapshader)
-         * [LinearGradient](#lineargradient)
-         * [SweepGradient](#sweepgradient)
-         * [RadialGradient](#radialgradient)
-         * [ComposeShader](#composeshader)
-      * [Metrix](#metrix)
-         * [setTranslate scale](#settranslate-scale)
-         * [preTranslate scale](#pretranslate-scale)
-         * [postTranslate scale](#posttranslate-scale)
+\* [Paint常用方法说明](#paint常用方法说明)
+
+   \* [setAntiAlias(boolean aa)](#setantialiasboolean-aa)
+
+   \* [setColorFilter(ColorFilter filter)](#setcolorfiltercolorfilter-filter)
+
+​     \* [ColorMatricColorFilter](#colormatriccolorfilter)
+
+​     \* [LighingColorFilter](#lighingcolorfilter)
+
+​     \* [PorterDuffColorFilter](#porterduffcolorfilter)
+
+   \* [setXfermode(Xfermode xfermode)](#setxfermodexfermode-xfermode)
+
+​     \* [AvoidXfermode](#avoidxfermode)
+
+​      \* [AvoidXfermode.Mode.TARGET](#avoidxfermodemodetarget)
+
+​      \* [AvoidXfermode.Mode.AVOID](#avoidxfermodemodeavoid)
+
+​     \* [PixelXorXfermode](#pixelxorxfermode)
+
+​     \* [PorterDuffXfermode](#porterduffxfermode)
+
+​      \* [PorterDuff.Mode.ADD](#porterduffmodeadd)
+
+​      \* [PorterDuff.Mode.CLEAR](#porterduffmodeclear)
+
+​      \* [PorterDuff.Mode.DARKEN](#porterduffmodedarken)
+
+​      \* [PorterDuff.Mode.DST](#porterduffmodedst)
+
+​      \* [PorterDuff.Mode.DST_ATOP](#porterduffmodedst_atop)
+
+​      \* [PorterDuff.Mode.DST_IN](#porterduffmodedst_in)
+
+​      \* [PorterDuff.Mode.DST_OUT](#porterduffmodedst_out)
+
+​      \* [PorterDuff.Mode.DST_OVER](#porterduffmodedst_over)
+
+​      \* [PorterDuff.Mode.LIGHTEN](#porterduffmodelighten)
+
+​      \* [PorterDuff.Mode.MULTIPLY](#porterduffmodemultiply)
+
+​      \* [PorterDuff.Mode.OVERLAY](#porterduffmodeoverlay)
+
+​      \* [PorterDuff.Mode.SCREEN](#porterduffmodescreen)
+
+​      \* [PorterDuff.Mode.SRC](#porterduffmodesrc)
+
+​      \* [PorterDuff.Mode.SRC_ATOP](#porterduffmodesrc_atop)
+
+​      \* [PorterDuff.Mode.SRC_IN](#porterduffmodesrc_in)
+
+​      \* [PorterDuff.Mode.SRC_OUT](#porterduffmodesrc_out)
+
+​      \* [PorterDuff.Mode.SRC_OVER](#porterduffmodesrc_over)
+
+​      \* [PorterDuff.Mode.XOR](#porterduffmodexor)
+
+​      \* [总结](#总结)
+
+   \* [setDither(boolean dither)](#setditherboolean-dither)
+
+   \* [setMaskFilter(MaskFilter maskFilter)](#setmaskfiltermaskfilter-maskfilter)
+
+​     \* [BlurMaskFilter](#blurmaskfilter)
+
+   \* [setPathEffect(PathEffect effect)](#setpatheffectpatheffect-effect)
+
+   \* [setStrokeCap(Paint.Cap cap)](#setstrokecappaintcap-cap)
+
+   \* [setShadowLayer(float radius, float dx, float dy, int shadowColor)](#setshadowlayerfloat-radius-float-dx-float-dy-int-shadowcolor)
+
+   \* [setShader(Shader shader)](#setshadershader-shader)
+
+​     \* [BitmapShader](#bitmapshader)
+
+​     \* [LinearGradient](#lineargradient)
+
+​     \* [SweepGradient](#sweepgradient)
+
+​     \* [RadialGradient](#radialgradient)
+
+​     \* [ComposeShader](#composeshader)
+
+   \* [Metrix](#metrix)
+
+​     \* [setTranslate scale](#settranslate-scale)
+
+​     \* [preTranslate scale](#pretranslate-scale)
+
+​     \* [postTranslate scale](#posttranslate-scale)
 
 ## setAntiAlias(boolean aa)
 
