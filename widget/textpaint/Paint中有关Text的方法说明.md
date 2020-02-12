@@ -2,7 +2,67 @@
 
 原文地址：[https://blog.csdn.net/aigestudio/article/details/41447349](https://blog.csdn.net/aigestudio/article/details/41447349)
 
-[TOC]
+ \* [Paint中有关Text的方法说明](#paint中有关text的方法说明)
+
+   \* [FontMetrix](#fontmetrix)
+
+   \* [TextPaint](#textpaint)
+
+   \* [ascent()](#ascent)
+
+   \* [descent()](#descent)
+
+   \* [breakText(CharSequence text, int start, int end, boolean measureForwards, float maxWidth, float[] measuedWidth)](#breaktextcharsequence-text-int-start-int-end-boolean-measureforwards-float-maxwidth-float-measuedwidth)
+
+   \* [getFontMetrics(Paint.FontMetrics metrics)](#getfontmetricspaintfontmetrics-metrics)
+
+   \* [getFontMetricsInt()](#getfontmetricsint)
+
+   \* [getFontMetricsInt(Paint.FontMetricsInt fmi)](#getfontmetricsintpaintfontmetricsint-fmi)
+
+   \* [getFontSpacing()](#getfontspacing)
+
+   \* [setUnderlineText(boolean underlineText)](#setunderlinetextboolean-underlinetext)
+
+   \* [setTypeface(Typeface typeface)](#settypefacetypeface-typeface)
+
+   \* [defaultFromStyle(int style)](#defaultfromstyleint-style)
+
+   \* [create(String familyName, int style)](#createstring-familyname-int-style)
+
+   \* [create(Typeface family, int style)](#createtypeface-family-int-style)
+
+   \* [createFromAsset(AssetManager mgr, String)](#createfromassetassetmanager-mgr-string)
+
+   \* [createFromFile(String path)](#createfromfilestring-path)
+
+   \* [createFromFile(File file)](#createfromfilefile-file)
+
+   \* [setTextSkewX(float skesX)](#settextskewxfloat-skesx)
+
+   \* [setTextSize(float textSize)](#settextsizefloat-textsize)
+
+   \* [setTextScaleX(float scaleX)](#settextscalexfloat-scalex)
+
+   \* [setTextLocale(Locale locale)](#settextlocalelocale-locale)
+
+   \* [setTextAlign(Paint.Align align)](#settextalignpaintalign-align)
+
+   \* [setSubpixelText(boolean subpixelText)](#setsubpixeltextboolean-subpixeltext)
+
+   \* [setStrikeThruText(boolean strikeThruText)](#setstrikethrutextboolean-strikethrutext)
+
+   \* [setLinearText(boolean linearText)](#setlineartextboolean-lineartext)
+
+   \* [setFakeBoldText(boolean fakeBoldText)](#setfakeboldtextboolean-fakeboldtext)
+
+   \* [measureText(String text)](#measuretextstring-text)
+
+   \* [measureText(CharSequence text, int start, int end)](#measuretextcharsequence-text-int-start-int-end)
+
+   \* [measureText(String text, int start, int end)](#measuretextstring-text-int-start-int-end)
+
+   \* [measureText(char[] text, int index, int count)](#measuretextchar-text-int-index-int-count)
 
 ## FontMetrix 
 
