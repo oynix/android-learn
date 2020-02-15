@@ -14,6 +14,7 @@
    - [Canvas常用方法说明](widget/canvas/Canvas常用方法说明.md)
    - [xRecyclerView](widget/xRecyclerView/xRecyclerView.md)
    - [TabLayout按需分配自身的宽度](widget/TabLayout按需分配自身的宽度/TabLayout按需分配自身的宽度.md)
+   - [CircleImageView](widget/CircleImageView/CircleImageView.md)
 6. 网络请求
    - 大多数APP框架
 7. Socket 连接
