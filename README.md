@@ -25,6 +25,8 @@
 9. kotlin
    - 扩展
 10. 数据存储
+   - Room的使用
+   - SQLite DB文件加密
 11. 反编译
     * [apk反编译--jadx](decompilation/apk反编译--jadx.md)
 12. 发布代码
